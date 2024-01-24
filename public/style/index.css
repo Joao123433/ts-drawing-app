@@ -1,0 +1,230 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #3C3B3A;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+body::-webkit-scrollbar {
+  width: 0;
+}
+
+main {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+h1 {
+  color: white;
+  font-size: 2.5rem;
+  margin-top: 25px;
+}
+
+canvas {
+  background-color: white;
+  border-radius: 5px;
+  width: 100%;
+  cursor: crosshair;
+}
+
+#section-colors {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 15px;
+}
+
+.colors {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.colors:active {
+  transform: scale(1.2);
+}
+
+.orange {
+  background-color: #FF6707;
+}
+
+.blue {
+  background-color: #010788;
+}
+
+.red {
+  background-color: #FF0000;
+}
+
+.purple {
+  background-color: #520046;
+}
+
+.pink {
+  background-color: #FD0099;
+}
+
+.green {
+  background-color: #00E940;
+}
+
+.brown {
+  background-color: #521A03;
+}
+
+.black {
+  background-color: #000;
+}
+
+#section-configs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+input {
+  width: 75%;
+}
+
+div {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+}
+
+div button {
+  font-size: 17px;
+  padding: 8px 13px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+
+#undo {
+  background-color: #E616F3;
+}
+
+#undo:hover {
+  background-color: #f671ff;
+  color: black;
+}
+
+#clean {
+  background-color: #00CECC;
+}
+
+#clean:hover {
+  background-color: #76fdfb;
+  color: black;
+}
+
+@media (min-width: 375px) {
+  h1 {
+    font-size: 2.7rem;
+  }
+
+  div button {
+    font-size: 20px;
+  }
+
+  .colors {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+@media (min-width: 500px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  #section-configs {
+    flex-direction: row;
+  }
+
+  div button {
+    font-size: 22px;
+  }
+
+  .colors {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+@media (min-width: 600px) {
+  main {
+    width: 80%;
+  }
+}
+
+@media (min-width: 700px) {
+  main {
+    width: 70%;
+  }
+
+  .colors {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+@media (min-width: 1000px) {
+  main {
+    width: 80%;
+    gap: 20px;
+  }
+
+  h1 {
+    font-size: 3.7rem;
+    margin-top: 0px;
+  }
+  
+  div button {
+    font-size: 1.5rem;
+    padding: 13px;
+  }
+
+  #section-colors {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1100px) {
+  main {
+    width: 80%;
+    gap: 20px;
+  }
+
+  canvas {
+    height: 50%;
+  }
+
+  div {
+    justify-content: space-evenly;
+  }
+
+  #section-colors {
+    width: 90%;
+  }
+
+  #section-configs {
+    width: 75%;
+  }
+}
