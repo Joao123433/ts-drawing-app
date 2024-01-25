@@ -34,6 +34,7 @@ canvas {
   border-radius: 5px;
   width: 100%;
   cursor: crosshair;
+  box-shadow: 2px 2px 15px black;
 }
 
 #section-colors {
@@ -101,12 +102,18 @@ input {
 }
 
 div {
-  width: 80%;
+  width: 90%;
   display: flex;
+  align-items: center;
   justify-content: space-around;
 }
 
-div button {
+span {
+  color: white;
+  font-size: 17px;
+}
+
+#undo, #clean {
   font-size: 17px;
   padding: 8px 13px;
   border-radius: 8px;
@@ -114,6 +121,9 @@ div button {
   font-weight: 500;
   border: none;
   cursor: pointer;
+  height: 75%;
+  display: flex;
+  align-items: center;
 }
 
 #undo {
@@ -134,12 +144,32 @@ div button {
   color: black;
 }
 
+#eraser {
+  background-color: transparent;
+  border: none;
+  width: 15%;
+  cursor: pointer;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+button:hover > svg > path {
+  fill: #000;
+}
+
 @media (min-width: 375px) {
   h1 {
     font-size: 2.7rem;
   }
 
-  div button {
+  span {
+    font-size: 20px;
+  }
+
+  #undo, #clean {
     font-size: 20px;
   }
 
@@ -154,11 +184,11 @@ div button {
     font-size: 3rem;
   }
 
-  #section-configs {
-    flex-direction: row;
+  #undo, #clean {
+    font-size: 22px;
   }
 
-  div button {
+  span {
     font-size: 22px;
   }
 
@@ -179,6 +209,10 @@ div button {
     width: 70%;
   }
 
+  #section-configs {
+    flex-direction: row;
+  }
+
   .colors {
     width: 75px;
     height: 75px;
@@ -196,9 +230,12 @@ div button {
     margin-top: 0px;
   }
   
-  div button {
+  #undo, #clean {
     font-size: 1.5rem;
-    padding: 13px;
+  }
+
+  span {
+    font-size: 1.5rem;
   }
 
   #section-colors {
@@ -217,7 +254,7 @@ div button {
   }
 
   div {
-    justify-content: space-evenly;
+    justify-content: space-around;
   }
 
   #section-colors {
