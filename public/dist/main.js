@@ -34,22 +34,6 @@ function drawing(ev) {
         context.stroke();
     }
 }
-function getX(ev) {
-    if (ev.pageX == undefined) {
-        return ev.targetTouches[0].pageX - canvas.offsetLeft;
-    }
-    else {
-        return ev.pageX - canvas.offsetLeft;
-    }
-}
-function getY(ev) {
-    if (ev.pageY == undefined) {
-        return ev.targetTouches[0].pageY - canvas.offsetTop;
-    }
-    else {
-        return ev.pageY - canvas.offsetTop;
-    }
-}
 function changeColor(ev) {
     const color = ev.target.dataset.color;
     strokeColor = color;
@@ -80,9 +64,9 @@ canvas.addEventListener("mousedown", start);
 canvas.addEventListener("mouseup", stop);
 canvas.addEventListener("mousemove", drawing);
 // mobile
-canvas.addEventListener("touchstart", start);
-canvas.addEventListener("touchend", stop);
-canvas.addEventListener("touchmove", drawing);
+canvas.addEventListener("touchstart", start, false);
+canvas.addEventListener("touchend", stop, false);
+canvas.addEventListener("touchmove", drawing, false);
 btnSize.addEventListener("input", changeSize);
 btnUndo.addEventListener("click", undo);
 btnClean.addEventListener("click", clean);
