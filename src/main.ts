@@ -16,7 +16,7 @@ let historic: ImageData[] =  []
 canvas.width = canvas.clientWidth
 canvas.height = canvas.clientHeight
 
-function move(ev: { pageX: number; pageY: number }) {
+function start(ev) {
   context.beginPath();
   context.moveTo(ev.pageX - canvas.offsetLeft, ev.pageY - canvas.offsetTop)
   draw = true
@@ -30,7 +30,7 @@ function stop() {
   historic.push(context.getImageData(0, 0, canvas.width, canvas.height));
 }
 
-function drawing(ev: { pageX: number; pageY: number }) {
+function drawing(ev) {
   if(draw) {
     context.lineTo(ev.pageX - canvas.offsetLeft, ev.pageY - canvas.offsetTop)
     context.strokeStyle = strokeColor
@@ -41,7 +41,7 @@ function drawing(ev: { pageX: number; pageY: number }) {
   }
 }
 
-function getX(ev: { pageX: number; targetTouches: { pageX: number }[] }) {
+function getX(ev) {
   if (ev.pageX == undefined) {
     return ev.targetTouches[0].pageX - canvas.offsetLeft
   } else {
@@ -50,7 +50,7 @@ function getX(ev: { pageX: number; targetTouches: { pageX: number }[] }) {
 }
 
 
-function getY(ev: { pageY: number; targetTouches: { pageY: number }[] }) {
+function getY(ev) {
   if (ev.pageY == undefined) {
     return ev.targetTouches[0].pageY - canvas.offsetTop
   } else {
@@ -87,9 +87,15 @@ function eraser() {
   strokeColor = "white"
 }
 
-canvas.addEventListener("mousedown", move)
+// pc
+canvas.addEventListener("mousedown", start)
 canvas.addEventListener("mouseup", stop)
 canvas.addEventListener("mousemove", drawing)
+
+// mobile
+canvas.addEventListener("touchstart", start)
+canvas.addEventListener("touchend", stop)
+canvas.addEventListener("touchmove", drawing)
 
 btnSize.addEventListener("input", changeSize)
 btnUndo.addEventListener("click", undo)

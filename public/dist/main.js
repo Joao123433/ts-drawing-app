@@ -12,7 +12,7 @@ let strokeSize = 0;
 let historic = [];
 canvas.width = canvas.clientWidth;
 canvas.height = canvas.clientHeight;
-function move(ev) {
+function start(ev) {
     context.beginPath();
     context.moveTo(ev.pageX - canvas.offsetLeft, ev.pageY - canvas.offsetTop);
     draw = true;
@@ -75,9 +75,14 @@ function clean() {
 function eraser() {
     strokeColor = "white";
 }
-canvas.addEventListener("mousedown", move);
+// pc
+canvas.addEventListener("mousedown", start);
 canvas.addEventListener("mouseup", stop);
 canvas.addEventListener("mousemove", drawing);
+// mobile
+canvas.addEventListener("touchstart", start);
+canvas.addEventListener("touchend", stop);
+canvas.addEventListener("touchmove", drawing);
 btnSize.addEventListener("input", changeSize);
 btnUndo.addEventListener("click", undo);
 btnClean.addEventListener("click", clean);
